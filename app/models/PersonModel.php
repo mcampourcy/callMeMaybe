@@ -9,6 +9,8 @@ namespace App\Models;
 class PersonModel extends CoreModel
 {
 
+    /** @var int */
+    private $_id;
     /** @var string */
     private $_lastname;
     /** @var string */
@@ -25,6 +27,26 @@ class PersonModel extends CoreModel
     }
 
     /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->_id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        if(is_numeric($id)) {
+            $this->_id = $id;
+        } else {
+            throw new \InvalidArgumentException("L'id doit etre un nombre");
+        }
+    }
+
+    /**
      * @return string
      */
     public function getLastname()
@@ -37,7 +59,11 @@ class PersonModel extends CoreModel
      */
     public function setLastname($lastname)
     {
-        $this->_lastname = $lastname;
+        if(is_string($lastname) && strlen($lastname) > 0) {
+            $this->_lastname = htmlspecialchars(trim($lastname));
+        } else {
+            throw new \InvalidArgumentException("Le champ doit etre du texte");
+        }
     }
 
     /**
@@ -53,13 +79,17 @@ class PersonModel extends CoreModel
      */
     public function setFirstname($firstname)
     {
-        $this->_firstname = $firstname;
+        if(is_string($firstname) && strlen($firstname) > 0) {
+            $this->_firstname = htmlspecialchars(trim($firstname));
+        } else {
+            throw new \InvalidArgumentException("Le champ doit etre du texte");
+        }
     }
 
     /**
      * @return string
      */
-    public function getPhoneNumber()
+    public function getPhone_number()
     {
         return $this->_phone_number;
     }
@@ -67,9 +97,13 @@ class PersonModel extends CoreModel
     /**
      * @param string $phone_number
      */
-    public function setPhoneNumber($phone_number)
+    public function setPhone_number($phone_number)
     {
-        $this->_phone_number = $phone_number;
+        if(is_string($phone_number) && strlen($phone_number) > 0) {
+            $this->_phone_number = htmlspecialchars(trim($phone_number));
+        } else {
+            throw new \InvalidArgumentException("Le champ doit etre du texte");
+        }
     }
 
 
