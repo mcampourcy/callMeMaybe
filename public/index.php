@@ -2,10 +2,10 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-require '../vendor/aura/autoload/autoload.php';
+require '../vendor/autoload.php';
 
-$app = new \Slim\App();
+$app = new \Slim\App(['settings' => ['displayErrorDetails' => true]]);
 
-//$app->get('/', '\HomeController:home');
+$app->get('/', 'App\Controllers\HomeController:getAllPersons');
 
 $app->run();
