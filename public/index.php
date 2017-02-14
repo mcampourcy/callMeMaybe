@@ -7,6 +7,6 @@ require '../config/config.php';
 
 $app = new \Slim\App(['settings' => ['displayErrorDetails' => true]]);
 
-$app->get('/', 'App\Controllers\HomeController:getAllPersons');
+$app->get('/', 'App\Controllers\PersonController:getAllPersons');
 
 $app->run();

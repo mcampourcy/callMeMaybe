@@ -6,10 +6,10 @@ use App\Dao\Dao;
 use App\Models\PersonModel;
 
 /**
- * Class HomeController
+ * Class PersonController
  * @package App\Controllers
  */
-class HomeController extends CoreController
+class PersonController extends CoreController
 {
 
     /**
