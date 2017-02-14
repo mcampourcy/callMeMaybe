@@ -9,49 +9,51 @@ namespace App\Views;
 class GenerateViews
 {
 
-    private $_layout;
     private $_template;
+    private $_view;
+    private $_content;
 
     /**
-     * generateView constructor.
-     * @param $template
-     * each content is wrapped in a layout
+     * GenerateViews constructor.
+     * @param $view
      */
-    public function __construct($template)
-    {
-        $this->_template = PRIVATE_ROOT.'views/templates/'.$template.'View.php';
-        //define the layout template path
-        $this->_layout = PRIVATE_ROOT.'views/templates/layout.php';
+    public function __construct($view) {
+        $this->_view = $view;
+        $this->_template = PRIVATE_ROOT.'views/templates/'.$this->_view.'View.php';
     }
 
     /**
-     * generate method
+     * Generate the HTML of the content view
      * @param $datas
      */
-    public function generate($datas){
-        //generate the HTML of the content view
-        $content = $this->render($this->_template, $datas);
-        //generate the HTML of the layout, include the content
-        $view = $this->render($this->_layout, $content, 'content');
-        echo $view;
+    public function generateContent($datas) {
+        $this->_content = $this->render($datas);
+        $this->generateLayout();
     }
 
     /**
-     * render methode
-     * @param $template
+     * Generate the HTML of the layout, include the content
+     */
+    public function generateLayout(){
+        $this->_view = 'content';
+        $this->_template = PRIVATE_ROOT.'views/templates/layout.php';;
+        $content_view = $this->render($this->_content);
+        echo $content_view;
+    }
+
+    /**
+     * render method
      * @param array $data_array
-     * @param $name
      * @return string
      */
-    public function render($template, $data_array = [], $name = null){
-        if(file_exists($template)){
+    public function render($data_array = []){
+        if(file_exists($this->_template)){
 
-            $data_name = is_null($name) ? $template : $name;
-            $datas = [$data_name.'Data' => $data_array];
+            $datas = [$this->_view.'Data' => $data_array];
 
             if(!empty($data_array)) extract($datas);
             ob_start();
-            require_once $template;
+            require_once $this->_template;
             return ob_get_clean();
 
         }

@@ -11,11 +11,11 @@ use App\Views\GenerateViews;
 class CoreController
 {
 
-    public function callView($datas, $template){
+    public function callView($datas, $view){
         //instanciates the view
-        $view = new GenerateViews($template);
+        $view = new GenerateViews($view);
         //send datas in the view
-        $view->generate($datas);
+        $view->generateContent($datas);
     }
 
 }
