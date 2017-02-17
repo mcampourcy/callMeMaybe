@@ -4,7 +4,7 @@
         $link = FO_URL.$person->getId();
         ?>
         <li>
-            <a href="<?=$link?>"><?=$person->getFirstname().' '.$person->getLastname()?></a>
+            <a href="<?=$link?>">★&nbsp<?=$person->getFirstname().' '.$person->getLastname()?></a>
         </li>
         <?php
     }//endfor

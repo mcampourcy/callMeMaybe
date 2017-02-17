@@ -5,22 +5,24 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans+Narrow:700" rel="stylesheet">
+    <link rel="stylesheet" href="<?=FO_URL?>css/style.css">
     <title>CallMeMaybe</title>
 </head>
 <body>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+<section>
 
-            <h1>Call Me Maybe !</h1>
+    <a href="<?=FO_URL?>">
+        <h1>call me</h1>
+        <h2>(maybe)</h2>
+    </a>
 
-            <?= $contentData; ?>
-
-        </div>
+    <div class="content">
+        <?= $contentData; ?>
     </div>
-</div>
+
+</section>
 
 </body>
 </html>

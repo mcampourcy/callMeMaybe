@@ -1,0 +1,57 @@
+/** CallMeMaybe - Stylesheet v1.0 - 02/2017 */
+/**
+ * 0. SASS VARIABLES
+ * 1. GENERAL
+ * 2. BLOCKS
+ * 3. ELEMENTS
+ */
+/* === 0. SASS VARIABLES === */
+/* === 1. GENERAL === */
+body {
+  background: url("../img/bg5.jpg") fixed;
+  background-size: cover;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  color: #333; }
+
+h1, h2 {
+  font-family: "PT Sans Narrow", sans-serif;
+  text-align: center;
+  color: #E84C13;
+  margin: 0; }
+
+h1 {
+  font-size: 3em; }
+
+h2 {
+  font-size: 1.5em;
+  padding-bottom: 1em; }
+
+a, a:hover, a:focus, a:visited {
+  text-decoration: none;
+  color: #333; }
+
+a:hover {
+  color: #E84C13; }
+
+/* === 2. BLOCKS === */
+section {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
+  padding: 2em;
+  width: 40%; }
+
+@media (min-width: 768px) and (max-width: 1080px) {
+  section {
+    width: 90%; } }
+@media (max-width: 768px) {
+  section {
+    width: 100%; } }
+/* === 3. ELEMENTS === */
+ul {
+  list-style: none;
+  padding: 0; }
+  ul li {
+    padding: 10px 0; }
+
+/*# sourceMappingURL=style.css.map */
