@@ -11,6 +11,9 @@ $app = new \Slim\App(['settings' => ['displayErrorDetails' => true]]);
 $app->get('/', 'App\Controllers\PersonController:getAllPersons');
 
 // One Person
-$app->get('/{id}', 'App\Controllers\PersonController:getOnePerson');
+$app->get('/person-{id}', 'App\Controllers\PersonController:getOnePerson');
+
+//404
+$app->get('/404', 'App\Controllers\PersonController:getOnePerson');
 
 $app->run();

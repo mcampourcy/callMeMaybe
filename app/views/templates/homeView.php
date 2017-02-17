@@ -1,7 +1,7 @@
 <ul>
     <?php
     foreach ($homeData as $person){
-        $link = FO_URL.$person->getId();
+        $link = FO_URL.'person-'.$person->getId();
         ?>
         <li>
             <a href="<?=$link?>">★&nbsp<?=$person->getFirstname().' '.$person->getLastname()?></a>

@@ -31,20 +31,24 @@ class PersonController extends CoreController
                     $model = new PersonModel($data);
                     array_push($datas, $model);
                 } catch (\Exception $e){
-                    $datas[] = "Les données sont corrompues";
+                    return $response->withRedirect(FO_URL);
                 }
 
             }//endfor
 
+            if(empty($datas)){
+                return $response->withRedirect(FO_URL);
+            }//endif
+
             $this->callView($datas, 'home');
 
         } catch (\Exception $e) {
-            $datas[] = "Le fichier n'existe pas";
+            return $response->withRedirect(FO_URL);
         }
 
     }
 
-    public function getOnePerson($request){
+    public function getOnePerson($request, $response){
         $id = $request->getAttribute('id');
 
         $datas = [];
@@ -62,17 +66,21 @@ class PersonController extends CoreController
                         $model = new PersonModel($data);
                         array_push($datas, $model);
                     } catch (\Exception $e){
-                        $datas[] = "Les données sont corrompues";
+                        return $response->withRedirect(FO_URL);
                     }
 
-                }//endif
+                } //endif
 
             }//endfor
+
+            if(empty($datas)){
+                return $response->withRedirect(FO_URL);
+            }//endif
 
             $this->callView($datas, 'person');
 
         } catch (\Exception $e) {
-            $datas[] = "Le fichier n'existe pas";
+            return $response->withRedirect(FO_URL);
         }
 
     }
